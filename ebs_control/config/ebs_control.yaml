@@ -1,0 +1,15 @@
+ebs_tractor:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  steering_controller:
+    type: effort_controllers/JointPositionController
+    joint: steering_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  velocity_controller:
+    type: effort_controllers/JointPositionController
+    joint: velocity_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}

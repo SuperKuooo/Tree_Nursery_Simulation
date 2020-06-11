@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find ebs_control)/config/ebs_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/ebs_tractor" args="joint_state_controller
+					  steering_controller
+					  velocity_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen" ns="/ebs_tractor">
+    <remap from="/joint_states" to="/ebs_tractor/joint_states" />
+  </node>
+
+</launch>

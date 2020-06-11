@@ -1,0 +1,24 @@
+<launch>
+  <!-- Launching the gazebo world simulation -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find ebs_gazebo)/worlds/pine_tree_nursery.world"/> 
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+ <!-- Load the urdf into the ROS Parameter Server -->
+  <param name="robot_description" 
+    command="$(find xacro)/xacro '$(find ebs_description)/urdf/ebs_tractor.urdf'"/>
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model ebs_tractor -param robot_description"/>
+
+  <!-- load sdf model -->
+  <include file="$(find ebs_control)/launch/ebs_control.launch"/>
+</launch>
+
+
+
