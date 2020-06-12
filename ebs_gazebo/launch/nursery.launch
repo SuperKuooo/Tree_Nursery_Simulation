@@ -9,15 +9,20 @@
     <arg name="debug" value="false"/>
   </include>
 
- <!-- Load the urdf into the ROS Parameter Server -->
+  <!-- Load the urdf into the ROS Parameter Server -->
   <param name="robot_description" 
     command="$(find xacro)/xacro '$(find ebs_description)/urdf/ebs_tractor.urdf'"/>
 
+  <!--Spawn the tractor urdf model -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-urdf -model ebs_tractor -param robot_description"/>
+    args="-urdf -x 10 -y 10 -z 0.01 -Y -1.5707 -model ebs_tractor -param robot_description"/>
 
-  <!-- load sdf model -->
+  <!-- load controller to the urdf model -->
   <include file="$(find ebs_control)/launch/ebs_control.launch"/>
+
+  <!-- wrap the raw gazebo data to meaningful sensor data -->
+  <node pkg="sensor_wrapper" type="sensor_wrapper.py" name="SW"/>
+  <!-- 192.168.2.4 -->
 </launch>
 
 

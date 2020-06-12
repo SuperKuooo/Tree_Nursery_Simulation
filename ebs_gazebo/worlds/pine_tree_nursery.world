@@ -135,12 +135,12 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
         </link>
       </model>
-      <pose frame=''>0 0 0 0 -0 0</pose>
+      <pose frame=''>29 23 0 0 0 0</pose>
       <distribution>
         <type>grid</type>
         <rows>5</rows>
-        <cols>6</cols>
-        <step>6 6 0</step>
+        <cols>7</cols>
+        <step>3 2 0</step>
       </distribution>
       <model_count>1</model_count>
     </population>
