@@ -16,15 +16,15 @@
 
   <!-- right_caster -->
   <gazebo reference="right_caster">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>1</mu1>
+    <mu2>0</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
 
   <!-- left_caster -->
   <gazebo reference="left_caster">
-    <mu1>0.2</mu1>
-    <mu2>0.2</mu2>
+    <mu1>1</mu1>
+    <mu2>0</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -35,6 +35,8 @@
 
   <!-- main_wheel -->
   <gazebo reference="main_wheel">
+    <mu1>1</mu1>
+    <mu2>0</mu2>
     <material>Gazebo/White</material>
   </gazebo>
 
@@ -42,12 +44,12 @@
   <gazebo reference="hokuyo_link">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
           <horizontal>
-            <samples>720</samples>
+            <samples>181</samples>
             <resolution>1</resolution>
             <min_angle>-1.570796</min_angle>
             <max_angle>1.570796</max_angle>

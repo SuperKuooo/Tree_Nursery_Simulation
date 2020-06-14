@@ -21,7 +21,7 @@
   <include file="$(find ebs_control)/launch/ebs_control.launch"/>
 
   <!-- wrap the raw gazebo data to meaningful sensor data -->
-  <node pkg="sensor_wrapper" type="sensor_wrapper.py" name="SW"/>
+  <!-- <node pkg="sensor_wrapper" type="sensor_wrapper.py" name="SW"/> -->
   <!-- 192.168.2.4 -->
 </launch>
 
