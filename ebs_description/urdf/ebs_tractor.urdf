@@ -122,7 +122,7 @@
     <child link="steering_wheel"/>
     <axis xyz="0 0 1"/>
     <origin xyz="0 0.75 0.4" rpy="0 0 0"/>
-    <limit lower="-0.523599" upper="0.523599" effort="1000.0" velocity="10"/>
+    <limit lower="-0.95993" upper="0.95993" effort="1000.0" velocity="10"/>
   </joint>
 
   <link name="main_wheel">
